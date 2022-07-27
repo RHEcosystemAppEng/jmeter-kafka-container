@@ -18,6 +18,16 @@
             <stringProp name="Argument.value">${__P(bootstrap.servers, localhost:9092)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
+          <elementProp name="SCHEMA_REGISTRY_URL" elementType="Argument">
+            <stringProp name="Argument.name">SCHEMA_REGISTRY_URL</stringProp>
+            <stringProp name="Argument.value">${__P(schema.registry.url, localhost:9092)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="SCHEMA_REGISTRY_CREDENTIALS" elementType="Argument">
+            <stringProp name="Argument.name">SCHEMA_REGISTRY_CREDENTIALS</stringProp>
+            <stringProp name="Argument.value">${__P(schema.registry.credentials, localhost:9092)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
           <elementProp name="BATCH_SIZE" elementType="Argument">
             <stringProp name="Argument.name">BATCH_SIZE</stringProp>
             <stringProp name="Argument.value">${__P(batch.size, 16384)}</stringProp>
@@ -138,6 +148,21 @@
             <stringProp name="Argument.value">${__P(throttle.message.num, 0)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
+          <elementProp name="SECURITY_PROTOCOL" elementType="Argument">
+            <stringProp name="Argument.name">SECURITY_PROTOCOL</stringProp>
+            <stringProp name="Argument.value">${__P(security.protocol, )}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="SASL_MECHANISM" elementType="Argument">
+            <stringProp name="Argument.name">SASL_MECHANISM</stringProp>
+            <stringProp name="Argument.value">${__P(sasl.mechanism, )}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="JAAS_CONFIG" elementType="Argument">
+            <stringProp name="Argument.name">JAAS_CONFIG</stringProp>
+            <stringProp name="Argument.value">${__P(jaas.config, )}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
         </collectionProp>
       </elementProp>
       <stringProp name="TestPlan.user_define_classpath"></stringProp>
@@ -166,9 +191,9 @@
           <stringProp name="script">import blog.braindose.kafka.KafkaPerformance;
 
 try{
-	KafkaPerformance kperf = new KafkaPerformance(&quot;${KAFKA_TOPIC}&quot;, &quot;${KAFKA_MESSAGE}&quot;, ${RECORD_SIZE}, ${NUMBER_RECORDS}, &quot;${BOOTSTRAP_SERVERS}&quot;,
+	KafkaPerformance kperf = new KafkaPerformance(&quot;${KAFKA_TOPIC}&quot;, &quot;${KAFKA_MESSAGE}&quot;, ${RECORD_SIZE}, ${NUMBER_RECORDS}, &quot;${BOOTSTRAP_SERVERS}&quot;, &quot;${SCHEMA_REGISTRY_URL}&quot;, &quot;${SCHEMA_REGISTRY_CREDENTIALS}&quot;,
 	            &quot;${COMPRESSION_TYPE}&quot;, ${BATCH_SIZE}, ${LINGER_MS}, ${BUFFER_MEMORY}, &quot;${ACKS}&quot;, ${SEND_BUFFER_BYTES},
-	            ${RECEIVE_BUFFER_BYTES}, ${MAX_BLOCK_MS}, ${DELIVERY_TIMEOUT_MS}, ${THROTTLE_RECORDSIZE}, ${THROTTLE_MESSAGENUM})
+	            ${RECEIVE_BUFFER_BYTES}, ${MAX_BLOCK_MS}, ${DELIVERY_TIMEOUT_MS}, ${THROTTLE_RECORDSIZE}, ${THROTTLE_MESSAGENUM}, &quot;${SECURITY_PROTOCOL}&quot;, &quot;${SASL_MECHANISM}&quot;, &quot;${JAAS_CONFIG}&quot;)
 	
 	            
 	kperf.send();

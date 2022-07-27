@@ -1,0 +1,505 @@
+{
+  "type": "record",
+  "name": "Transaction",
+  "namespace": "io.confluent.connect.avro",
+  "doc": "Avro Schema for Transaction List Topic",
+  "fields": [
+    {
+      "name": "INTACCDTODATECR",
+      "type": [
+        "null",
+        {
+          "type": "bytes",
+          "scale": 6,
+          "precision": 24,
+          "connect.version": 1,
+          "connect.parameters": {
+            "scale": "6",
+            "connect.decimal.precision": "24"
+          },
+          "connect.name": "org.apache.kafka.connect.data.Decimal",
+          "logicalType": "decimal"
+        }
+      ],
+      "doc": "Credit Interest Accrued",
+      "default": null
+    },
+    {
+      "name": "INTACCDTODATEDR",
+      "type": [
+        "null",
+        {
+          "type": "bytes",
+          "scale": 6,
+          "precision": 24,
+          "connect.version": 1,
+          "connect.parameters": {
+            "scale": "6",
+            "connect.decimal.precision": "24"
+          },
+          "connect.name": "org.apache.kafka.connect.data.Decimal",
+          "logicalType": "decimal"
+        }
+      ],
+      "doc": "Debit Interest Accrued",
+      "default": null
+    },
+    {
+      "name": "INTADJAMOUNTCR",
+      "type": [
+        "null",
+        {
+          "type": "bytes",
+          "scale": 6,
+          "precision": 24,
+          "connect.version": 1,
+          "connect.parameters": {
+            "scale": "6",
+            "connect.decimal.precision": "24"
+          },
+          "connect.name": "org.apache.kafka.connect.data.Decimal",
+          "logicalType": "decimal"
+        }
+      ],
+      "doc": "Credit Interest Adjustment",
+      "default": null
+    },
+    {
+      "name": "INTADJAMOUNTDR",
+      "type": [
+        "null",
+        {
+          "type": "bytes",
+          "scale": 6,
+          "precision": 24,
+          "connect.version": 1,
+          "connect.parameters": {
+            "scale": "6",
+            "connect.decimal.precision": "24"
+          },
+          "connect.name": "org.apache.kafka.connect.data.Decimal",
+          "logicalType": "decimal"
+        }
+      ],
+      "doc": "Debit Interest Adjustment",
+      "default": null
+    },
+    {
+      "name": "ACCOUNTID",
+      "type": [
+        "null",
+        "string"
+      ],
+      "doc": "Account Number",
+      "default": null
+    },
+    {
+      "name": "CUSTOMERCODE",
+      "type": "string",
+      "doc": "Customer Code (Auto generated or Manual)"
+    },
+    {
+      "name": "REFERENCE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "doc": "Transaction Reference",
+      "default": null
+    },
+    {
+      "name": "NARRATION",
+      "type": [
+        "null",
+        "string"
+      ],
+      "doc": "Narration recorded on the transaction entry",
+      "default": null
+    },
+    {
+      "name": "TRANSACTIONCODE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "doc": "Business Transaction Code",
+      "default": null
+    },
+    {
+      "name": "ISOCURRENCYCODE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "doc": "ISO Currency Code",
+      "default": null
+    },
+    {
+      "name": "BRANCHSORTCODE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "doc": "Source Branch Code",
+      "default": null
+    },
+    {
+      "name": "AMOUNTDEBIT",
+      "type": [
+        "null",
+        {
+          "type": "bytes",
+          "scale": 6,
+          "precision": 24,
+          "connect.version": 1,
+          "connect.parameters": {
+            "scale": "6",
+            "connect.decimal.precision": "24"
+          },
+          "connect.name": "org.apache.kafka.connect.data.Decimal",
+          "logicalType": "decimal"
+        }
+      ],
+      "doc": "Absolute Credit Amount of Transaction",
+      "default": null
+    },
+    {
+      "name": "AMOUNTCREDIT",
+      "type": [
+        "null",
+        {
+          "type": "bytes",
+          "scale": 6,
+          "precision": 24,
+          "connect.version": 1,
+          "connect.parameters": {
+            "scale": "6",
+            "connect.decimal.precision": "24"
+          },
+          "connect.name": "org.apache.kafka.connect.data.Decimal",
+          "logicalType": "decimal"
+        }
+      ],
+      "doc": "Absolute Debit Amount of Transaction",
+      "default": null
+    },
+    {
+      "name": "VALUEDATE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "doc": "Value Date of Transaction (sample value: 2020-07-16T00:00:00.000Z)",
+      "default": null
+    },
+    {
+      "name": "TRANSACTIONDATE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "doc": "Transaction Date Recorded on the Transaction",
+      "default": null
+    },
+    {
+      "name": "POSTINGDATE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "doc": "Posting Date of Transaction",
+      "default": null
+    },
+    {
+      "name": "BOOKBALANCE",
+      "type": [
+        "null",
+        {
+          "type": "bytes",
+          "scale": 6,
+          "precision": 24,
+          "connect.version": 1,
+          "connect.parameters": {
+            "scale": "6",
+            "connect.decimal.precision": "24"
+          },
+          "connect.name": "org.apache.kafka.connect.data.Decimal",
+          "logicalType": "decimal"
+        }
+      ],
+      "doc": "Book Balance on the Account after relevant transaction entry is posted to an account",
+      "default": null
+    },
+    {
+      "name": "CLEAREDBALANCE",
+      "type": [
+        "null",
+        {
+          "type": "bytes",
+          "scale": 6,
+          "precision": 24,
+          "connect.version": 1,
+          "connect.parameters": {
+            "scale": "6",
+            "connect.decimal.precision": "24"
+          },
+          "connect.name": "org.apache.kafka.connect.data.Decimal",
+          "logicalType": "decimal"
+        }
+      ],
+      "doc": "Cleared running Balance on the Account after relevant transaction entry is posted to an account",
+      "default": null
+    },
+    {
+      "name": "TRANSACTIONSRID",
+      "type": [
+        "null",
+        "string"
+      ],
+      "doc": "Unique Transaction Identifier",
+      "default": null
+    },
+    {
+      "name": "BASEEQUIVALENT",
+      "type": [
+        "null",
+        {
+          "type": "bytes",
+          "scale": 6,
+          "precision": 24,
+          "connect.version": 1,
+          "connect.parameters": {
+            "scale": "6",
+            "connect.decimal.precision": "24"
+          },
+          "connect.name": "org.apache.kafka.connect.data.Decimal",
+          "logicalType": "decimal"
+        }
+      ],
+      "doc": "Base equivalent transacton amount",
+      "default": null
+    },
+    {
+      "name": "AMOUNT",
+      "type": [
+        "null",
+        {
+          "type": "bytes",
+          "scale": 6,
+          "precision": 24,
+          "connect.version": 1,
+          "connect.parameters": {
+            "scale": "6",
+            "connect.decimal.precision": "24"
+          },
+          "connect.name": "org.apache.kafka.connect.data.Decimal",
+          "logicalType": "decimal"
+        }
+      ],
+      "doc": "Signed transaction amount",
+      "default": null
+    },
+    {
+      "name": "USERID",
+      "type": [
+        "null",
+        "string"
+      ],
+      "doc": "User ID that is used for the posting of transaction",
+      "default": null
+    },
+    {
+      "name": "UBTYPE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "doc": "Essence Transaction Record Types",
+      "default": null
+    },
+    {
+      "name": "UBACCTRANSCOUNTER",
+      "type": [
+        "null",
+        {
+          "type": "bytes",
+          "scale": 0,
+          "precision": 38,
+          "connect.version": 1,
+          "connect.parameters": {
+            "scale": "0",
+            "connect.decimal.precision": "38"
+          },
+          "connect.name": "org.apache.kafka.connect.data.Decimal",
+          "logicalType": "decimal"
+        }
+      ],
+      "doc": "Running Transaction number against all transactions for an Account",
+      "default": null
+    },
+    {
+      "name": "REVERSALINDICATOR",
+      "type": [
+        "null",
+        {
+          "type": "bytes",
+          "scale": 0,
+          "precision": 38,
+          "connect.version": 1,
+          "connect.parameters": {
+            "scale": "0",
+            "connect.decimal.precision": "38"
+          },
+          "connect.name": "org.apache.kafka.connect.data.Decimal",
+          "logicalType": "decimal"
+        }
+      ],
+      "doc": "Reversal indicator, which indicates relevant transaction entry is part of reversal transaction",
+      "default": null
+    },
+    {
+      "name": "STATEMENTFLAG",
+      "type": [
+        "null",
+        {
+          "type": "bytes",
+          "scale": 0,
+          "precision": 38,
+          "connect.version": 1,
+          "connect.parameters": {
+            "scale": "0",
+            "connect.decimal.precision": "38"
+          },
+          "connect.name": "org.apache.kafka.connect.data.Decimal",
+          "logicalType": "decimal"
+        }
+      ],
+      "doc": "Statement flag - indicates if transaction is included in the account statements",
+      "default": null
+    },
+    {
+      "name": "TRANSACTIONID",
+      "type": [
+        "null",
+        "string"
+      ],
+      "doc": "Unique Identifier for Related Set of Transactions, which defines business transaction",
+      "default": null
+    },
+    {
+      "name": "UBCHANNELID",
+      "type": [
+        "null",
+        "string"
+      ],
+      "doc": "Channel's Id for originated transaction. Channel's detail will be available on application server side",
+      "default": null
+    },
+    {
+      "name": "CHEQUEDRAFTNUMBER",
+      "type": [
+        "null",
+        {
+          "type": "bytes",
+          "scale": 0,
+          "precision": 38,
+          "connect.version": 1,
+          "connect.parameters": {
+            "scale": "0",
+            "connect.decimal.precision": "38"
+          },
+          "connect.name": "org.apache.kafka.connect.data.Decimal",
+          "logicalType": "decimal"
+        }
+      ],
+      "doc": "Cheque Draft Number",
+      "default": null
+    },
+    {
+      "name": "DEBITCREDITFLAG",
+      "type": [
+        "null",
+        "string"
+      ],
+      "doc": "Debit Credit Flag",
+      "default": null
+    },
+    {
+      "name": "CUSTSHORTNAME",
+      "type": [
+        "null",
+        "string"
+      ],
+      "doc": "The Customer short name - If Personal this is Auto Generated , If Corporate this is manual)",
+      "default": null
+    },
+    {
+      "name": "ACCOUNTNAME",
+      "type": [
+        "null",
+        "string"
+      ],
+      "doc": "Usually mapped from the Customer Short Name in any account opening business processes. In the reference implementation, having the customer name at this level saves a join to the Customer table for reports",
+      "default": null
+    },
+    {
+      "name": "AUTHORISEDUSERID",
+      "type": [
+        "null",
+        "string"
+      ],
+      "doc": "User ID who approved transaction when 4/6 eye-check is carried out",
+      "default": null
+    },
+    {
+      "name": "EXCHANGERATE",
+      "type": [
+        "null",
+        {
+          "type": "bytes",
+          "scale": 12,
+          "precision": 24,
+          "connect.version": 1,
+          "connect.parameters": {
+            "scale": "12",
+            "connect.decimal.precision": "24"
+          },
+          "connect.name": "org.apache.kafka.connect.data.Decimal",
+          "logicalType": "decimal"
+        }
+      ],
+      "doc": "Original Transaction Amount",
+      "default": null
+    },
+    {
+      "name": "ORIGINALAMOUNT",
+      "type": [
+        "null",
+        {
+          "type": "bytes",
+          "scale": 6,
+          "precision": 24,
+          "connect.version": 1,
+          "connect.parameters": {
+            "scale": "6",
+            "connect.decimal.precision": "24"
+          },
+          "connect.name": "org.apache.kafka.connect.data.Decimal",
+          "logicalType": "decimal"
+        }
+      ],
+      "doc": "Original Transaction Amount",
+      "default": null
+    },
+    {
+      "name": "TABSOURCE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "doc": "Internal use - Transaction source location as per Essence Data Model",
+      "default": null
+    }
+  ],
+  "connect.name": "io.confluent.connect.avro.Transaction"
+}

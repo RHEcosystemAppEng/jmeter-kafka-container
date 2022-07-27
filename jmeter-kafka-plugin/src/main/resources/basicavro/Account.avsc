@@ -1,0 +1,346 @@
+{
+  "type": "record",
+  "name": "Account",
+  "namespace": "io.confluent.connect.avro",
+  "doc": "Avro Schema for Account Topic",
+  "fields": [
+    {
+      "name": "ACCOUNTSOURCEID",
+      "type": [
+        "null",
+        "string"
+      ],
+      "doc": "Account Source Identifier",
+      "default": null
+    },
+    {
+      "name": "ACCOUNTID",
+      "type": "string",
+      "doc": "The account number generated when an instance of an account product is created at runtime"
+    },
+    {
+      "name": "CUSTOMERCODE",
+      "type": "string",
+      "doc": "Customer Code (Auto generated or Manual)"
+    },
+    {
+      "name": "PRODUCTID",
+      "type": [
+        "null",
+        "string"
+      ],
+      "doc": "Sub-product code that defines financial product under which this account belongs",
+      "default": null
+    },
+    {
+      "name": "OPENDATE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "doc": "Open Date. The date the account instance was created. Sample value : 2020-07-16T00:00:00.000Z",
+      "default": null
+    },
+    {
+      "name": "ISOCURRENCYCODE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "doc": "ISO Currency Code",
+      "default": null
+    },
+    {
+      "name": "CREDITLIMIT",
+      "type": [
+        "null",
+        {
+          "type": "bytes",
+          "scale": 6,
+          "precision": 24,
+          "connect.version": 1,
+          "connect.parameters": {
+            "scale": "6",
+            "connect.decimal.precision": "24"
+          },
+          "connect.name": "org.apache.kafka.connect.data.Decimal",
+          "logicalType": "decimal"
+        }
+      ],
+      "doc": "Credit limit on the account. Usually the value of the Cleared Balance on the account cannot go below this when it is in credit",
+      "default": null
+    },
+    {
+      "name": "UBACCOUNTSTATUS",
+      "type": "string",
+      "doc": "Account Status, Can be Active or InActive"
+    },
+    {
+      "name": "DEBITLIMIT",
+      "type": [
+        "null",
+        {
+          "type": "bytes",
+          "scale": 6,
+          "precision": 24,
+          "connect.version": 1,
+          "connect.parameters": {
+            "scale": "6",
+            "connect.decimal.precision": "24"
+          },
+          "connect.name": "org.apache.kafka.connect.data.Decimal",
+          "logicalType": "decimal"
+        }
+      ],
+      "doc": "Debit limit on the account. The value of the Cleared Balance on the account cannot go below this when it is in debit",
+      "default": null
+    },
+    {
+      "name": "ACCSTOPPED",
+      "type": [
+        "null",
+        "string"
+      ],
+      "doc": "Indicates if account has been stopped (True/False)",
+      "default": null
+    },
+    {
+      "name": "ACCSTOPPEDBYUSER",
+      "type": [
+        "null",
+        "string"
+      ],
+      "doc": "The user who stopped the account",
+      "default": null
+    },
+    {
+      "name": "ACCSTOPDATE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "doc": "The date the account was stopped from having financial postings made to it",
+      "default": null
+    },
+    {
+      "name": "ACCSTOPREASON",
+      "type": [
+        "null",
+        "string"
+      ],
+      "doc": "Stop Reason. A description of the stop on the account",
+      "default": null
+    },
+    {
+      "name": "ACCSTOPCODE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "doc": "Stop Code. An arbitrary code used as a reason why the account was stopped",
+      "default": null
+    },
+    {
+      "name": "ACCCLOSED",
+      "type": [
+        "null",
+        "string"
+      ],
+      "doc": "Indicates whether the account is closed or not (True/False)",
+      "default": null
+    },
+    {
+      "name": "ACCCLOSUREDATE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "doc": "The date account was closed",
+      "default": null
+    },
+    {
+      "name": "ACCRIGHTSINDICATOR",
+      "type": [
+        "null",
+        {
+          "type": "bytes",
+          "scale": 0,
+          "precision": 2,
+          "connect.version": 1,
+          "connect.parameters": {
+            "scale": "0",
+            "connect.decimal.precision": "2"
+          },
+          "connect.name": "org.apache.kafka.connect.data.Decimal",
+          "logicalType": "decimal"
+        }
+      ],
+      "doc": "This column used as the password protection flag indicator for each Account. Integer values can be PASSWD_REQ_FOR_POSTING_ENQUIRY=-1, PASSWD_NOT_REQ=0, PASSWD_REQ_FOR_POSTING=1, ACCOUNT_STOPPED_NO_POSTING_ENQUIRY=2, ACCOUNT_STOPPED_PASSWD_REQ_FOR_POSTING_ENQUIRY=3, DEBITS_NOT_ALLOWED=4, DEBITS_NOT_ALLOWED_PASSWD_REQ_TO_OVERRIDE=5, CREDITS_NOT_ALLOWED=6, CREDITS_NOT_ALLOWED_PASSWD_REQ_TO_OVERRIDE=7, PASSWD_REQ_FOR_ENQUIRY=8",
+      "default": null
+    },
+    {
+      "name": "ACCRIGHTSINDREASON",
+      "type": [
+        "null",
+        "string"
+      ],
+      "doc": "The reason for amending the account rights indicator",
+      "default": null
+    },
+    {
+      "name": "ACCRIGHTSINDCHANGEDT",
+      "type": [
+        "null",
+        "string"
+      ],
+      "doc": "The last date on which account rights indicator has been modified",
+      "default": null
+    },
+    {
+      "name": "ACCRIGHTSINDCHANGEDBY",
+      "type": [
+        "null",
+        "string"
+      ],
+      "doc": "The last user who changed the account rights indicator",
+      "default": null
+    },
+    {
+      "name": "ACCLIMITEXCESSACTION",
+      "type": [
+        "null",
+        {
+          "type": "bytes",
+          "scale": 0,
+          "precision": 38,
+          "connect.version": 1,
+          "connect.parameters": {
+            "scale": "0",
+            "connect.decimal.precision": "38"
+          },
+          "connect.name": "org.apache.kafka.connect.data.Decimal",
+          "logicalType": "decimal"
+        }
+      ],
+      "doc": "Limit Excess Action This defines what should happen when either of the above is exceeded. 0 = Do not allow any excess; 1 = Allow excess but report it",
+      "default": null
+    },
+    {
+      "name": "ACCLIMITINDICATOR",
+      "type": [
+        "null",
+        {
+          "type": "bytes",
+          "scale": 0,
+          "precision": 38,
+          "connect.version": 1,
+          "connect.parameters": {
+            "scale": "0",
+            "connect.decimal.precision": "38"
+          },
+          "connect.name": "org.apache.kafka.connect.data.Decimal",
+          "logicalType": "decimal"
+        }
+      ],
+      "doc": "Limit Indicator. Values can be: 0 - Both DR and CR limits are not applicable; 1 - The DR Limit is to be applied, but the CR limit is not effective; 2 - The CR limit is a floor limit, so the DR limit is not effective; 3 - The CR is a ceiling limit and the DR is a floor limit",
+      "default": null
+    },
+    {
+      "name": "ACCLASTCREDITLIMITCHANGEDATE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "doc": "The last time the account?s credit limit was changed",
+      "default": null
+    },
+    {
+      "name": "ACCLASTDEBITLIMITCHANGEDATE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "doc": "The last time the account?s debit limit was changed",
+      "default": null
+    },
+    {
+      "name": "BOOKBALANCE",
+      "type": [
+        "null",
+        {
+          "type": "bytes",
+          "scale": 6,
+          "precision": 24,
+          "connect.version": 1,
+          "connect.parameters": {
+            "scale": "6",
+            "connect.decimal.precision": "24"
+          },
+          "connect.name": "org.apache.kafka.connect.data.Decimal",
+          "logicalType": "decimal"
+        }
+      ],
+      "doc": "Book Balance on the Account",
+      "default": null
+    },
+    {
+      "name": "CLEAREDBALANCE",
+      "type": [
+        "null",
+        {
+          "type": "bytes",
+          "scale": 6,
+          "precision": 24,
+          "connect.version": 1,
+          "connect.parameters": {
+            "scale": "6",
+            "connect.decimal.precision": "24"
+          },
+          "connect.name": "org.apache.kafka.connect.data.Decimal",
+          "logicalType": "decimal"
+        }
+      ],
+      "doc": "Cleared Balance on the Account",
+      "default": null
+    },
+    {
+      "name": "BLOCKBALANCE",
+      "type": [
+        "null",
+        {
+          "type": "bytes",
+          "scale": 6,
+          "precision": 24,
+          "connect.version": 1,
+          "connect.parameters": {
+            "scale": "6",
+            "connect.decimal.precision": "24"
+          },
+          "connect.name": "org.apache.kafka.connect.data.Decimal",
+          "logicalType": "decimal"
+        }
+      ],
+      "doc": "Blocked Balance on the Account",
+      "default": null
+    },
+    {
+      "name": "LIMITEXPIRYDATE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "doc": "Limit Expiry Date",
+      "default": null
+    },
+    {
+      "name": "LIMITREVIEWDATE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "doc": "Limit Review Date",
+      "default": null
+    }
+  ],
+  "connect.name": "io.confluent.connect.avro.Account"
+}

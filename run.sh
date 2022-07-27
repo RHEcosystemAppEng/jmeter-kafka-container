@@ -9,6 +9,7 @@ echo
 echo "Current HEAP settings ..."
 echo "HEAP=$HEAP"
 echo
+export java.security.auth.login.config="/opt/jmeter/testplans/jaas_config.conf"
 
 for FILE in $JMETER_TESTPLANS/*; 
     do
@@ -20,6 +21,8 @@ for FILE in $JMETER_TESTPLANS/*;
         echo "jmeter -n -t $FILE \ "
         echo "-Jjmeter.threads=$JMETER_THREADS \ "
         echo "-Jbootstrap.servers=$BOOTSTRAP_SERVERS \ "
+        echo "-Jschema.registry.url=$SCHEMA_REGISTRY_URL \ "
+        echo "-Jschema.registry.credentials=$SCHEMA_REGISTRY_CREDENTIALS \ "
         echo "-Jbatch.size=$BATCH_SIZE \ "
         echo "-Jlinger.ms=$LINGER_MS \ "
         echo "-Jbuffer.memory=$BUFFER_MEMORY \ "
@@ -43,12 +46,17 @@ for FILE in $JMETER_TESTPLANS/*;
         echo "-Jrecord.size=$RECORD_SIZE \ "
         echo "-Jthrottle.record.size=$THROTTLE_RECORD_SIZE \ "
         echo "-Jthrottle.message.num=$THROTTLE_MESSAGE_NUM \ "
-        echo "-Jnumber.records=$NUMBER_RECORDS; "
+        echo "-Jnumber.records=$NUMBER_RECORDS \ "
+        echo "-Jsecurity.protocol=$SECURITY_PROTOCOL \ "
+        echo "-Jsasl.mechanism=$SASL_MECHANISM \ "
+        echo "-Jjaas.config=$JAAS_CONFIG; "
         echo
-        
-        jmeter -n -t $FILE \
+
+        jmeter -Djava.security.auth.login.config=/opt/jmeter/testplans/jaas_config.conf -n -t $FILE \
         -Jjmeter.threads=$JMETER_THREADS \
         -Jbootstrap.servers=$BOOTSTRAP_SERVERS \
+        -Jschema.registry.url=$SCHEMA_REGISTRY_URL \
+        -Jschema.registry.credentials=$SCHEMA_REGISTRY_CREDENTIALS \
         -Jbatch.size=$BATCH_SIZE \
         -Jlinger.ms=$LINGER_MS \
         -Jbuffer.memory=$BUFFER_MEMORY \
@@ -72,6 +80,9 @@ for FILE in $JMETER_TESTPLANS/*;
         -Jrecord.size=$RECORD_SIZE \
         -Jthrottle.record.size=$THROTTLE_RECORD_SIZE \
         -Jthrottle.message.num=$THROTTLE_MESSAGE_NUM \
-        -Jnumber.records=$NUMBER_RECORDS;
+        -Jnumber.records=$NUMBER_RECORDS \
+        "-Jsecurity.protocol=$SECURITY_PROTOCOL" \
+        "-Jsasl.mechanism=$SASL_MECHANISM" \
+        "-Jjaas.config=$JAAS_CONFIG";
 done
 
