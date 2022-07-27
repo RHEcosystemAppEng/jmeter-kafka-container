@@ -6,6 +6,7 @@ The container can be deployed into Docker Engine or OpenShift Container Platform
 - Removed Promethues monitoring for JMeter. JMeter listener has negative impact on the JMeter performance especially obvious for Kafka client.
 - Instead of Promethues, a summary of Kafka producer performance statistics is printed on the command prompt output. This provides sufficient and yet effective Kafka producer performance observation data.
 - Enhancement on Kafka client implementation.
+- Enable schema registry to be utilized in Kafka producer
 
 ## Supported Parameters
 
@@ -13,34 +14,39 @@ The following are the support parameters.
 
 > For some of the possible configurable values for Kafka settings listed below, please refer to [Apache Kafka producer configuration](https://kafka.apache.org/documentation/#producerconfigs).
 
-| Parameters                          | Description                                                                           | Default  |
-| ------------------------------------|:--------------------------------------------------------------------------------------| :-----:|
-|JMETER_THREADS                       | Number of JMeter threads / users                                                      | 1 |
-|BOOTSTRAP_SERVERS                    | Kafka bootstrap server (bootstrap.servers)                                            | localhost:9092 |
-|BATCH_SIZE                           | Kafka batch size (batch.size)                                                         | 16384 |
-|LINGER_MS                            | Kafka Linger in ms (linger.ms)                                                        | 1 |
-|BUFFER_MEMORY                        | Kafka Buffer memory (buffer.memory)                                                   | 33554432 |
-|ACKS                                 | Kafka acks                                                                            | 1 |
-|COMPRESSION_TYPE                     | Kafka Compression Type (compression.type)                                             | none |
-|SEND_BUFFER                          | Kafka send buffer (send.buffer.bytes)                                                 | 131072 |
-|RECEIVE_BUFFER                       | Kafka receive buffer (receive.buffer.bytes)                                           | 32768 |
-|KAFKA_TOPIC                          | Kafka Topic                                                                           | jmeter-test |
-|RAMUP_PERIOD                         | JMeter ramp-up perriod in seconds                                                     | 2 |
-|LOOP_COUNT                           | JMeter loop count                                                                     | -1 |
-|SAMPLER_LABEL                        | JMeter sampler label                                                                  | Kafka JSR223 |
-|KAFKA_MESSAGE                        | Kafka message                                                                        |  |
-|THREADGROUP_SCHEDULER                | JMeter thread group scheduler a.k.a Specify Thread Lifetime.                          | false |
-|THREADGROUP_DURATION                 | JMeter thread group duration in seconds. Required when THREADGROUP_SCHEDULER is true  | 0 |
-|THREADGROUP_DELAY                    | JMeter thread group delay in seconds. Required when THREADGROUP_SCHEDULER is true.    | 0 |
-|THREADGROUP_SAME_USER_EACH_ITERATION | JMeter Same user on each iteration                                              | false |
-|THREADGROUP_DELAYSTART               | JMeter Delay Thread creation until needed.                                      | false |
-|HEAP                                 | JMeter JVM Heap size. Spaces are allowed.                                             | -Xms512m -Xmx2048m |
-|MAX_BLOCK_MS                         | Kafka max.block.ms    | 60000   |
-|DELIVERY_TIMEOUT_MS                  | Kafka delivery.timeout.ms   | 120000    |
-|RECORD_SIZE                          | Kafka message record size to generate (bytes)   | 100 |
-|NUMBER_RECORDS                       | Number of message to send   | 100|
-|THROTTLE_RECORD_SIZE                 | Record size per second to throttle in MB  | 0   |
-|THROTTLE_MESSAGE_NUM                 | Number of message per second to throttle  | 0 |
+| Parameters                           | Description                                                                          |      Default       |
+|--------------------------------------|:-------------------------------------------------------------------------------------|:------------------:|
+| JMETER_THREADS                       | Number of JMeter threads / users                                                     |         1          |
+| BOOTSTRAP_SERVERS                    | Kafka bootstrap server (bootstrap.servers)                                           |   localhost:9092   |
+| SCHEMA_REGISTRY_URL                  | Kafka schema registry URL                                                            |                    |
+| SCHEMA_REGISTRY_CREDENTIALS          | Schema registry user credentials (username:password)                                 |                    |
+| SECURITY_PROTOCOL                    | Kafka security protocol                                                              |                    |
+| SASL_MECHANISM                       | Kafka sasl mechanism                                                                 |                    |
+| JAAS_CONFIG_FILE_PATH                | JaaS config file path                                                                |                    |
+| BATCH_SIZE                           | Kafka batch size (batch.size)                                                        |       16384        |
+| LINGER_MS                            | Kafka Linger in ms (linger.ms)                                                       |         1          |
+| BUFFER_MEMORY                        | Kafka Buffer memory (buffer.memory)                                                  |      33554432      |
+| ACKS                                 | Kafka acks                                                                           |         1          |
+| COMPRESSION_TYPE                     | Kafka Compression Type (compression.type)                                            |        none        |
+| SEND_BUFFER                          | Kafka send buffer (send.buffer.bytes)                                                |       131072       |
+| RECEIVE_BUFFER                       | Kafka receive buffer (receive.buffer.bytes)                                          |       32768        |
+| KAFKA_TOPIC                          | Kafka Topic                                                                          |    jmeter-test     |
+| RAMUP_PERIOD                         | JMeter ramp-up perriod in seconds                                                    |         2          |
+| LOOP_COUNT                           | JMeter loop count                                                                    |         -1         |
+| SAMPLER_LABEL                        | JMeter sampler label                                                                 |    Kafka JSR223    |
+| KAFKA_MESSAGE                        | Kafka message                                                                        |                    |
+| THREADGROUP_SCHEDULER                | JMeter thread group scheduler a.k.a Specify Thread Lifetime.                         |       false        |
+| THREADGROUP_DURATION                 | JMeter thread group duration in seconds. Required when THREADGROUP_SCHEDULER is true |         0          |
+| THREADGROUP_DELAY                    | JMeter thread group delay in seconds. Required when THREADGROUP_SCHEDULER is true.   |         0          |
+| THREADGROUP_SAME_USER_EACH_ITERATION | JMeter Same user on each iteration                                                   |       false        |
+| THREADGROUP_DELAYSTART               | JMeter Delay Thread creation until needed.                                           |       false        |
+| HEAP                                 | JMeter JVM Heap size. Spaces are allowed.                                            | -Xms512m -Xmx2048m |
+| MAX_BLOCK_MS                         | Kafka max.block.ms                                                                   |       60000        |
+| DELIVERY_TIMEOUT_MS                  | Kafka delivery.timeout.ms                                                            |       120000       |
+| RECORD_SIZE                          | Kafka message record size to generate (bytes)                                        |        100         |
+| NUMBER_RECORDS                       | Number of message to send                                                            |        100         |
+| THROTTLE_RECORD_SIZE                 | Record size per second to throttle in MB                                             |         0          |
+| THROTTLE_MESSAGE_NUM                 | Number of message per second to throttle                                             |         0          |
 
 ## Running JMeter Container with Docker Engine
 

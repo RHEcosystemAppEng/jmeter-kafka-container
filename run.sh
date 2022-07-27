@@ -49,7 +49,7 @@ for FILE in $JMETER_TESTPLANS/*;
         echo "-Jnumber.records=$NUMBER_RECORDS \ "
         echo "-Jsecurity.protocol=$SECURITY_PROTOCOL \ "
         echo "-Jsasl.mechanism=$SASL_MECHANISM \ "
-        echo "-Jjaas.config=$JAAS_CONFIG; "
+        echo "-Jjaas.config.file.path=$JAAS_CONFIG_FILE_PATH; "
         echo
 
         jmeter -Djava.security.auth.login.config=/opt/jmeter/testplans/jaas_config.conf -n -t $FILE \
@@ -83,6 +83,6 @@ for FILE in $JMETER_TESTPLANS/*;
         -Jnumber.records=$NUMBER_RECORDS \
         "-Jsecurity.protocol=$SECURITY_PROTOCOL" \
         "-Jsasl.mechanism=$SASL_MECHANISM" \
-        "-Jjaas.config=$JAAS_CONFIG";
+        "-Jjaas.config.file.path=$JAAS_CONFIG_FILE_PATH";
 done
 

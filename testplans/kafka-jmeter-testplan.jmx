@@ -158,9 +158,9 @@
             <stringProp name="Argument.value">${__P(sasl.mechanism, )}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="JAAS_CONFIG" elementType="Argument">
-            <stringProp name="Argument.name">JAAS_CONFIG</stringProp>
-            <stringProp name="Argument.value">${__P(jaas.config, )}</stringProp>
+          <elementProp name="JAAS_CONFIG_FILE_PATH" elementType="Argument">
+            <stringProp name="Argument.name">JAAS_CONFIG_FILE_PATH</stringProp>
+            <stringProp name="Argument.value">${__P(jaas.config.file.path, )}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -193,7 +193,7 @@
 try{
 	KafkaPerformance kperf = new KafkaPerformance(&quot;${KAFKA_TOPIC}&quot;, &quot;${KAFKA_MESSAGE}&quot;, ${RECORD_SIZE}, ${NUMBER_RECORDS}, &quot;${BOOTSTRAP_SERVERS}&quot;, &quot;${SCHEMA_REGISTRY_URL}&quot;, &quot;${SCHEMA_REGISTRY_CREDENTIALS}&quot;,
 	            &quot;${COMPRESSION_TYPE}&quot;, ${BATCH_SIZE}, ${LINGER_MS}, ${BUFFER_MEMORY}, &quot;${ACKS}&quot;, ${SEND_BUFFER_BYTES},
-	            ${RECEIVE_BUFFER_BYTES}, ${MAX_BLOCK_MS}, ${DELIVERY_TIMEOUT_MS}, ${THROTTLE_RECORDSIZE}, ${THROTTLE_MESSAGENUM}, &quot;${SECURITY_PROTOCOL}&quot;, &quot;${SASL_MECHANISM}&quot;, &quot;${JAAS_CONFIG}&quot;)
+	            ${RECEIVE_BUFFER_BYTES}, ${MAX_BLOCK_MS}, ${DELIVERY_TIMEOUT_MS}, ${THROTTLE_RECORDSIZE}, ${THROTTLE_MESSAGENUM}, &quot;${SECURITY_PROTOCOL}&quot;, &quot;${SASL_MECHANISM}&quot;, &quot;${JAAS_CONFIG_FILE_PATH}&quot;)
 	
 	            
 	kperf.send();

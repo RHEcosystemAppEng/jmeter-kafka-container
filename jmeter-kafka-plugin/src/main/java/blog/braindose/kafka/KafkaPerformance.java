@@ -53,7 +53,7 @@ public class KafkaPerformance {
     public KafkaPerformance(String kafkaTopic, String kafkaMessage, int recordSize, long numRecords,
             String bootstrapServer, String schemaRegistryUrl, String schemaRegistryCred, String compressionType, int batchSize, long lingerMS, long bufferMemory,
             String acks, int sendBufferBytes, int receiveBufferBytes, long maxBlockMS, int deliveryTimeoutMS,
-            int throttleSizeRate, int throttleMessageRate, String securityProtocol, String saslMechanism, String jaasConfig) {
+            int throttleSizeRate, int throttleMessageRate, String securityProtocol, String saslMechanism, String jaasConfigFilePath) {
         this.kafkaTopic = kafkaTopic;
         this.kafkaMessage = kafkaMessage;
         this.recordSize = recordSize;
@@ -72,7 +72,7 @@ public class KafkaPerformance {
         this.throttleSizeRate = throttleSizeRate;
 
         this.props = new Properties();
-        System.out.println("JUDE ADDED::::" + jaasConfig);
+        System.out.println("JUDE ADDED::::" + jaasConfigFilePath);
         this.props.put("bootstrap.servers", this.bootstrapServer);
         this.props.put(AbstractKafkaSchemaSerDeConfig.SCHEMA_REGISTRY_URL_CONFIG, schemaRegistryUrl);
         this.props.put(AbstractKafkaSchemaSerDeConfig.BASIC_AUTH_CREDENTIALS_SOURCE, "USER_INFO");
@@ -81,7 +81,7 @@ public class KafkaPerformance {
         props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, KafkaAvroSerializer.class);
         this.props.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, securityProtocol);
         this.props.put("sasl.mechanism", saslMechanism);
-//        this.props.put("sasl.jaas.config", jaasConfig);
+//        this.props.put("sasl.jaas.config", jaasConfigFilePath);
         this.props.put("compression.type", this.compressionType);
         this.props.put("batch.size", this.batchSize);
         this.props.put("linger.ms", this.lingerMS);
@@ -97,7 +97,7 @@ public class KafkaPerformance {
     public KafkaPerformance(String kafkaTopic, String kafkaMessage, int recordSize, BigDecimal numRecords,
             String bootstrapServer, String schemaRegistryUrl, String schemaRegistryCred, String compressionType, int batchSize, long lingerMS, long bufferMemory,
             String acks, int sendBufferBytes, int receiveBufferBytes, long maxBlockMS, int deliveryTimeoutMS,
-            int throttleSizeRate, int throttleMessageRate, String securityProtocol, String saslMechanism, String jaasConfig) {
+            int throttleSizeRate, int throttleMessageRate, String securityProtocol, String saslMechanism, String jaasConfigFilePath) {
         this.kafkaTopic = kafkaTopic;
         this.kafkaMessage = kafkaMessage;
         this.recordSize = recordSize;
@@ -116,7 +116,7 @@ public class KafkaPerformance {
         this.throttleSizeRate = throttleSizeRate;
 
         this.props = new Properties();
-        System.out.println("JUDE ADDED::::" + jaasConfig);
+        System.out.println("JUDE ADDED::::" + jaasConfigFilePath);
         this.props.put("bootstrap.servers", this.bootstrapServer);
         this.props.put(AbstractKafkaSchemaSerDeConfig.SCHEMA_REGISTRY_URL_CONFIG, schemaRegistryUrl);
         this.props.put(AbstractKafkaSchemaSerDeConfig.BASIC_AUTH_CREDENTIALS_SOURCE, "USER_INFO");
@@ -125,7 +125,7 @@ public class KafkaPerformance {
         props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, KafkaAvroSerializer.class);
         this.props.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, securityProtocol);
         this.props.put("sasl.mechanism", saslMechanism);
-//        this.props.put("sasl.jaas.config", jaasConfig);
+//        this.props.put("sasl.jaas.config", jaasConfigFilePath);
         this.props.put("compression.type", this.compressionType);
         this.props.put("batch.size", this.batchSize);
         this.props.put("linger.ms", this.lingerMS);
